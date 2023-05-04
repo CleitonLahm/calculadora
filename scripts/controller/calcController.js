@@ -24,7 +24,13 @@ class CalcController {
 
   }
 
-  addEventListenerAll(element, events, fn)
+  addEventListenerAll(element, events, fn){
+
+    events.split(' ').forEach(event => {
+      element.addEventListener(event, fn, false);
+    })
+  }
+
 
   initButtonsEvents(){
 
@@ -33,6 +39,10 @@ class CalcController {
       buttons.forEach((btn, index) => {
         this.addEventListenerAll(btn, 'click frag', e => {
           console.log(btn)
+        })
+
+        this.addEventListenerAll(btn, "mouseover mouseup moudedown", e => {
+          btn. style.cursor = "pointer"
         })
       })
 
