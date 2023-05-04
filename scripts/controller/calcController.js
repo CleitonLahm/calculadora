@@ -8,6 +8,7 @@ class CalcController {
       this._timeEl = document.querySelector("#hora");
       this._currentDate;
       this.initialize();
+      this.initButtonsEvents()
 
   }
 
@@ -23,9 +24,17 @@ class CalcController {
 
   }
 
+  addEventListenerAll(element, events, fn)
+
   initButtonsEvents(){
 
       let buttons = document.querySelectorAll("#buttons > g, #parts > g");
+
+      buttons.forEach((btn, index) => {
+        this.addEventListenerAll(btn, 'click frag', e => {
+          console.log(btn)
+        })
+      })
 
   }
 
